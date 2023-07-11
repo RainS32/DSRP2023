@@ -1,0 +1,6 @@
+```{r}
+#this is a comment
+library(ggplot2)
+
+ggplot(data = mpg, aes(x = hwy)) + geom_density()
+```
