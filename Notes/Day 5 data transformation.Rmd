@@ -151,7 +151,7 @@ arrange(starwars, species, desc(birth_year))
 2.  Arrange the starwars dataset from shortest to tallest by species
 
     ```{r}
-    arrange(starwars, species, height) # order by height, tiebraker is alphabetic species
+    arrange(starwars, height, species) # order by height, tiebraker is alphabetic species
 
     arrange(starwars, species, height)
     ```

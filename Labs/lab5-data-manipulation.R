@@ -3,7 +3,6 @@ library(ggplot2)
 
 getwd()
 nba <- read.csv("Datasets/championsdata.csv")
-nba$Team[df$col == ‘sth’] <- 
 View(nba)
 
 #filtering the observations of your dataset based on one or more variable using filter()
@@ -23,7 +22,19 @@ newNBA <- mutate(newNBA,
 
 #Create a data table of grouped summaries on at least one numeric variable by at least 
 #one categorical variable using summarize()
-summarize(newNBA,
+summarizeNBA <- summarize(newNBA,
           Team_ppg = mean(PTS, na.rm = T),
           count = n(),
           .by = Team)
+
+#Reorder a data table of your choice by one or more variables using arrange()
+reorderNBA <- arrange(newNBA, Team, desc(PTS))
+
+#Create at least one new visualization using some form of an updated dataset
+ggplot(data = newNBA, aes(x = FGP, y = Win)) + 
+  geom_point(aes(color = Team)) + 
+  geom_smooth() +
+  labs(x = "Field Goal %",
+       y = "Win",
+       title = "Distribution of Wins by FG%")
+
