@@ -2,6 +2,10 @@ library(ggplot2)
 nba <- read.csv("DSRP2023/Datasets/championsdata.csv")
 str(nba)
 
+## clean
+nba[nba == "Warriorrs"] <- "Warriors"
+nba[nba == "'Heat'"] <- "Heat"
+
 ## 1 Variable ####
 ggplot(data = nba, aes(x = PTS)) + 
   geom_histogram(fill = "#28e6f7") + 

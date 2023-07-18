@@ -7,6 +7,10 @@ getwd()
 nba <- read.csv("Datasets/championsdata.csv")
 View(nba)
 
+## clean
+nba[nba == "Warriorrs"] <- "Warriors"
+nba[nba == "'Heat'"] <- "Heat"
+
 ## T-test ####
 
 ## Compare the total rebounds per game between the lakers and the celtics
@@ -44,5 +48,5 @@ TukeyHSD(a)
 ##Null Hypothesis: Points scored is independent from assists
 ##Alternate Hypothesis: Points scored is associated with assists (or not independent)
 
-con_table <- table(nba$AT, nba$PTS)
+con_table <- table(nba$AST, nba$PTS)
 results <- chisq.test(con_table)

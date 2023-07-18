@@ -5,6 +5,10 @@ getwd()
 nba <- read.csv("Datasets/championsdata.csv")
 View(nba)
 
+## clean
+nba[nba == "Warriorrs"] <- "Warriors"
+nba[nba == "'Heat'"] <- "Heat"
+
 #filtering the observations of your dataset based on one or more variable using filter()
 lakersCeltics <- filter(nba, Team == c("Lakers", "Celtics"))
 

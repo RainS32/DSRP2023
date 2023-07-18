@@ -1,7 +1,11 @@
 getwd() # get working directory
-df <- read.csv("DSRP2023/Datasets/championsdata.csv")
+df <- read.csv("Datasets/championsdata.csv")
 str(df)
 View(df)
+
+## clean
+df[df == "Warriorrs"] <- "Warriors"
+df[df == "'Heat'"] <- "Heat"
 
 mean <- mean(df$PTS)
 median <- median(df$PTS)
